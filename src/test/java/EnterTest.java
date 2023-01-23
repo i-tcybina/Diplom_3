@@ -1,4 +1,6 @@
 import com.codeborne.selenide.Configuration;
+
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Configuration.startMaximized;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverRunner.getWebDriver;
@@ -9,6 +11,10 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 @RunWith(Parameterized.class)
 public class EnterTest {
@@ -40,7 +46,13 @@ public class EnterTest {
         Registration.setEmail("1itatest@mail.com");
         Registration.setPassword("1Ira123");
         Registration.clickRegistrationButton();
-        Thread.sleep(1000);
+        Authorization.getInput().shouldHave(exactText("Вход\n" +
+                "Email\n" +
+                "Пароль\n" +
+                "Войти\n" +
+                "Вы — новый пользователь? Зарегистрироваться\n" +
+                "Забыли пароль? Восстановить пароль"), Duration.ofSeconds(5));
+        //Thread.sleep(1000);
         Main.clickСonstructor();
     }
 

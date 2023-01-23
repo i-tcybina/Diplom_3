@@ -34,7 +34,7 @@ public class ConstructorTest {
     @Test
     public void clickFillingsConstructor() throws InterruptedException {
         Main.clickFilling();
-        Thread.sleep(1000);
+
         Main.matcherSelectedTab("Начинки");
     }
     @Test
@@ -46,7 +46,6 @@ public class ConstructorTest {
     public void clickBunConstructor() throws InterruptedException {
         Main.clickFilling();
         Main.clickBun();
-        Thread.sleep(1000);
         Main.matcherSelectedTab("Булки");
     }
     @After
